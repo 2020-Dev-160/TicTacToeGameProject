@@ -9,7 +9,7 @@ public class GameTest {
     @Test
     public void gameShouldReturnXOnFirstTurn() {
         Game game = new Game();
-        Assert.assertEquals('X', game.getPlayerAtPosition(1));
+        Assert.assertEquals('X', game.getPlayerAtPosition(0));
     }
 
 }
