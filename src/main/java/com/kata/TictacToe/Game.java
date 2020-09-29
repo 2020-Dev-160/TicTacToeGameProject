@@ -3,6 +3,16 @@ package com.kata.TictacToe;
 public class Game {
     public static final char PLAYER_X = 'X';
     public static final char PLAYER_O = 'O';
+
+    public static final int ZERO_POSITION = 0;
+    public static final int FIRST_POSITION = 1;
+    public static final int SECOND_POSITION = 2;
+    public static final int THIRD_POSITION = 3;
+    public static final int FOURTH_POSITION = 4;
+    public static final int FIFTH_POSITION = 5;
+    public static final int SIXTH_POSITION = 6;
+    public static final int SEVENTH_POSITION = 7;
+    public static final int EIGHTH_POSITION = 8;
     char previousPlayer;
     char[] board = new char[9];
 
@@ -32,20 +42,20 @@ public class Game {
     }
 
     private boolean isAnyColumnFilledByPlayerX() {
-        return isPlayerXonGivenPosition(2) && isPlayerXonGivenPosition(5) && isPlayerXonGivenPosition(8)
-                || isPlayerXonGivenPosition(1) && isPlayerXonGivenPosition(4) && isPlayerXonGivenPosition(7)
-                || isPlayerXonGivenPosition(0) && isPlayerXonGivenPosition(3) && isPlayerXonGivenPosition(6);
+        return isPlayerXonGivenPosition(SECOND_POSITION) && isPlayerXonGivenPosition(FIFTH_POSITION) && isPlayerXonGivenPosition(EIGHTH_POSITION)
+                || isPlayerXonGivenPosition(FIRST_POSITION) && isPlayerXonGivenPosition(FOURTH_POSITION) && isPlayerXonGivenPosition(SEVENTH_POSITION)
+                || isPlayerXonGivenPosition(ZERO_POSITION) && isPlayerXonGivenPosition(THIRD_POSITION) && isPlayerXonGivenPosition(SIXTH_POSITION);
     }
 
     private boolean isAnyRowFilledByPlayerX() {
-        return isPlayerXonGivenPosition(0) && isPlayerXonGivenPosition(1) && isPlayerXonGivenPosition(2)
-                || isPlayerXonGivenPosition(3) && isPlayerXonGivenPosition(4) && isPlayerXonGivenPosition(5)
-                || isPlayerXonGivenPosition(6) && isPlayerXonGivenPosition(7) && isPlayerXonGivenPosition(8);
+        return isPlayerXonGivenPosition(ZERO_POSITION) && isPlayerXonGivenPosition(FIRST_POSITION) && isPlayerXonGivenPosition(SECOND_POSITION)
+                || isPlayerXonGivenPosition(THIRD_POSITION) && isPlayerXonGivenPosition(FOURTH_POSITION) && isPlayerXonGivenPosition(FIFTH_POSITION)
+                || isPlayerXonGivenPosition(SIXTH_POSITION) && isPlayerXonGivenPosition(SEVENTH_POSITION) && isPlayerXonGivenPosition(EIGHTH_POSITION);
     }
 
     private boolean isAnyDiagonalFilledByPlayerX() {
-        return isPlayerXonGivenPosition(0) && isPlayerXonGivenPosition(4) && isPlayerXonGivenPosition(8)
-                || isPlayerXonGivenPosition(2) && isPlayerXonGivenPosition(4) && isPlayerXonGivenPosition(6);
+        return isPlayerXonGivenPosition(ZERO_POSITION) && isPlayerXonGivenPosition(FOURTH_POSITION) && isPlayerXonGivenPosition(EIGHTH_POSITION)
+                || isPlayerXonGivenPosition(SECOND_POSITION) && isPlayerXonGivenPosition(FOURTH_POSITION) && isPlayerXonGivenPosition(SIXTH_POSITION);
     }
 
     private boolean isPlayerXonGivenPosition(int position) {
@@ -53,20 +63,20 @@ public class Game {
     }
 
     private boolean isAnyColumnFilledByPlayerO() {
-        return isPlayerOonGivenPosition(2) && isPlayerOonGivenPosition(5) && isPlayerOonGivenPosition(8)
-                || isPlayerOonGivenPosition(1) && isPlayerOonGivenPosition(4) && isPlayerOonGivenPosition(7)
-                || isPlayerOonGivenPosition(0) && isPlayerOonGivenPosition(3) && isPlayerOonGivenPosition(6);
+        return isPlayerOonGivenPosition(SECOND_POSITION) && isPlayerOonGivenPosition(FIFTH_POSITION) && isPlayerOonGivenPosition(EIGHTH_POSITION)
+                || isPlayerOonGivenPosition(FIRST_POSITION) && isPlayerOonGivenPosition(FOURTH_POSITION) && isPlayerOonGivenPosition(SEVENTH_POSITION)
+                || isPlayerOonGivenPosition(ZERO_POSITION) && isPlayerOonGivenPosition(THIRD_POSITION) && isPlayerOonGivenPosition(SIXTH_POSITION);
     }
 
     private boolean isAnyRowFilledByPlayerO() {
-        return isPlayerOonGivenPosition(0) && isPlayerOonGivenPosition(1) && isPlayerOonGivenPosition(2)
-                || isPlayerOonGivenPosition(3) && isPlayerOonGivenPosition(4) && isPlayerOonGivenPosition(5)
-                || isPlayerOonGivenPosition(6) && isPlayerOonGivenPosition(7) && isPlayerOonGivenPosition(8);
+        return isPlayerOonGivenPosition(ZERO_POSITION) && isPlayerOonGivenPosition(FIRST_POSITION) && isPlayerOonGivenPosition(SECOND_POSITION)
+                || isPlayerOonGivenPosition(THIRD_POSITION) && isPlayerOonGivenPosition(FOURTH_POSITION) && isPlayerOonGivenPosition(FIFTH_POSITION)
+                || isPlayerOonGivenPosition(SIXTH_POSITION) && isPlayerOonGivenPosition(SEVENTH_POSITION) && isPlayerOonGivenPosition(EIGHTH_POSITION);
     }
 
     private boolean isAnyDiagonalFilledByPlayerO() {
-        return isPlayerOonGivenPosition(0) && isPlayerOonGivenPosition(4) && isPlayerOonGivenPosition(8)
-                || isPlayerOonGivenPosition(2) && isPlayerOonGivenPosition(4) && isPlayerOonGivenPosition(6);
+        return isPlayerOonGivenPosition(ZERO_POSITION) && isPlayerOonGivenPosition(FOURTH_POSITION) && isPlayerOonGivenPosition(EIGHTH_POSITION)
+                || isPlayerOonGivenPosition(SECOND_POSITION) && isPlayerOonGivenPosition(FOURTH_POSITION) && isPlayerOonGivenPosition(SIXTH_POSITION);
     }
 
     private boolean isPlayerOonGivenPosition(int position) {
