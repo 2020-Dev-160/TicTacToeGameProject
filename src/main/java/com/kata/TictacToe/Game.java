@@ -9,6 +9,7 @@ public class Game {
     public char getPlayerAtPosition(int positionNumber) {
         return board[positionNumber];
     }
+
     private char getCurrentPlayer() {
         return previousPlayer == PLAYER_X ? PLAYER_O : PLAYER_X;
     }
@@ -22,9 +23,10 @@ public class Game {
     public char getWinner() {
         if (getPlayerAtPosition(0) == PLAYER_X && getPlayerAtPosition(3) == PLAYER_X && getPlayerAtPosition(6) == PLAYER_X) {
             return PLAYER_X;
-        }
-        else if (getPlayerAtPosition(0) == PLAYER_O && getPlayerAtPosition(3) == PLAYER_O && getPlayerAtPosition(6) == PLAYER_O) {
+        } else if (getPlayerAtPosition(0) == PLAYER_O && getPlayerAtPosition(3) == PLAYER_O && getPlayerAtPosition(6) == PLAYER_O) {
             return PLAYER_O;
+        } else if (getPlayerAtPosition(1) == PLAYER_X && getPlayerAtPosition(4) == PLAYER_X && getPlayerAtPosition(7) == PLAYER_X) {
+            return PLAYER_X;
         }
         return 0;
     }
