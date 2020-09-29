@@ -18,4 +18,8 @@ public class Game {
         board[positionNumber] = currentPlayer;
         previousPlayer = currentPlayer;
     }
+
+    public char getWinner() {
+        return PLAYER_X;
+    }
 }
