@@ -94,5 +94,15 @@ public class GameTest {
 
         Assert.assertEquals(PLAYER_X, game.getWinner());
     }
+    @Test
+    public void gameShouldDetermineWinnerOAfterFillingThirdColumn() {
+        game.playAtPosition(0);
+        game.playAtPosition(2);
+        game.playAtPosition(1);
+        game.playAtPosition(5);
+        game.playAtPosition(3);
+        game.playAtPosition(8);
 
+        Assert.assertEquals(PLAYER_O, game.getWinner());
+    }
 }
