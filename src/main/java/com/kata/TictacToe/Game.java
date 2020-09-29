@@ -20,6 +20,12 @@ public class Game {
     }
 
     public char getWinner() {
-        return PLAYER_X;
+        if (getPlayerAtPosition(0) == PLAYER_X && getPlayerAtPosition(3) == PLAYER_X && getPlayerAtPosition(6) == PLAYER_X) {
+            return PLAYER_X;
+        }
+        else if (getPlayerAtPosition(0) == PLAYER_O && getPlayerAtPosition(3) == PLAYER_O && getPlayerAtPosition(6) == PLAYER_O) {
+            return PLAYER_O;
+        }
+        return 0;
     }
 }
