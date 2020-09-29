@@ -30,4 +30,13 @@ public class GameTest {
 
         Assert.assertEquals(PLAYER_O,game.getPlayerAtPosition(1));
     }
+    @Test
+    public void gameshouldReturnXonThirdTurn() {
+        game.playAtPosition(0);
+        game.playAtPosition(1);
+        game.playAtPosition(2);
+
+        Assert.assertEquals(PLAYER_X, game.getPlayerAtPosition(2));
+    }
+
 }
