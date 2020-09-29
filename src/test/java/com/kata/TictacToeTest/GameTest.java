@@ -173,5 +173,15 @@ public class GameTest {
 
         Assert.assertEquals(PLAYER_O, game.getWinner());
     }
+    @Test
+    public void gameShouldDetermineWinnerXAfterFillingFirstDiagonal() {
+        game.playAtPosition(0);
+        game.playAtPosition(1);
+        game.playAtPosition(4);
+        game.playAtPosition(2);
+        game.playAtPosition(8);
+
+        Assert.assertEquals(PLAYER_X, game.getWinner());
+    }
 
 }
