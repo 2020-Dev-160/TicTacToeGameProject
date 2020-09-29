@@ -73,6 +73,7 @@ public class GameTest {
 
         Assert.assertEquals(PLAYER_X, game.getWinner());
     }
+
     @Test
     public void gameShouldDetermineWinnerOAfterFillingSecondColumn() {
         game.playAtPosition(0);
@@ -84,6 +85,7 @@ public class GameTest {
 
         Assert.assertEquals(PLAYER_O, game.getWinner());
     }
+
     @Test
     public void gameShouldDetermineWinnerXAfterFillingThirdColumn() {
         game.playAtPosition(2);
@@ -94,6 +96,7 @@ public class GameTest {
 
         Assert.assertEquals(PLAYER_X, game.getWinner());
     }
+
     @Test
     public void gameShouldDetermineWinnerOAfterFillingThirdColumn() {
         game.playAtPosition(0);
@@ -105,4 +108,16 @@ public class GameTest {
 
         Assert.assertEquals(PLAYER_O, game.getWinner());
     }
+
+    @Test
+    public void gameShouldDetermineWinnerXAfterFillingFirstRow() {
+        game.playAtPosition(0);
+        game.playAtPosition(3);
+        game.playAtPosition(1);
+        game.playAtPosition(4);
+        game.playAtPosition(2);
+
+        Assert.assertEquals(PLAYER_X, game.getWinner());
+    }
+
 }
