@@ -1,7 +1,7 @@
 package com.kata.TictacToe;
 
 public class Game {
-    public char getPlayerAtPosition() {
+    public char getPlayerAtPosition(int position) {
         return 'X';
     }
 }

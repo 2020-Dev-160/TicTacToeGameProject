@@ -8,9 +8,8 @@ public class GameTest {
 
     @Test
     public void gameShouldReturnXOnFirstTurn() {
-
         Game game = new Game();
-        Assert.assertEquals('X', game.getPlayerAtPosition());
+        Assert.assertEquals('X', game.getPlayerAtPosition(1));
     }
 
 }
