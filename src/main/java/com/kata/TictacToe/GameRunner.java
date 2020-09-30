@@ -58,15 +58,16 @@ public class GameRunner {
         return game.userInputValidation(positionNumber) && game.checkPositionIsFree(positionNumber);
     }
 
-    public void printBoard() {
+    public void printBoard () {
         log.info("Welcome to 2 Player Tic Tac Toe.");
         log.info("--------------------------------");
-        System.out.println("/---|---|---\\");
-        System.out.println("|  0 | 1 | 2 |");
-        System.out.println("|-----------|");
-        System.out.println("| 3 | 4 | 5 |");
-        System.out.println("|-----------|");
-        System.out.println("| 6 | 7 | 8 |");
-        System.out.println("/---|---|---\\");
+        StringBuilder printInstruction=new StringBuilder("/---|---|---\\"
+                +  "\n|  0 | 1 | 2|"
+                +"\n------------|"
+                +"\n| 3 | 4 | 5 |"
+                +"\n|-----------|"
+                +"\n| 6 | 7 | 8 |"
+                + "\n/---|---|---|");
+        System.out.println(printInstruction);
     }
 }
