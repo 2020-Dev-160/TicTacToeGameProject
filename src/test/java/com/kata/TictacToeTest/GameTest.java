@@ -283,4 +283,18 @@ public class GameTest {
         Assert.assertTrue(game.checkPositionIsFree(8));
         Assert.assertFalse(game.checkPositionIsFree(8));
     }
+    @Test
+    public void gameNotOver(){
+        game.playAtPosition(0);
+        game.playAtPosition(1);
+        game.playAtPosition(2);
+        game.playAtPosition(4);
+        game.playAtPosition(3);
+        game.playAtPosition(6);
+        game.playAtPosition(5);
+        game.playAtPosition(8);
+        game.playAtPosition(7);
+
+        Assert.assertTrue(!game.isGameNotOver());
+    }
  }
