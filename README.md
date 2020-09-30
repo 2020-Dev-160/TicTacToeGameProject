@@ -22,7 +22,7 @@ The rules are described below :
     - junit 4.12
     - mockito 1.10.18
   
-## Content
+## Program execution
   This project can be executed by GameRunner(main) class.
   Following is the result of the game on console --
   
