@@ -26,9 +26,16 @@ public class GameRunner {
         startGame();
     }
     private void startGame() {
-        log.info("Player "+ playerTurn + " turn: enter position number (0 to 8) :");
-        int positionNumber = scanner.nextLine();
-    }
+        int positionNumber;
+        log.info("Player " + playerTurn + " turn: enter position number (0 to 8) :");
+        positionNumber = scanner.nextLine();
+        if (playerTurn == 'X')
+            playerTurn = 'O';
+        else
+            playerTurn = 'X';
+        log.info("Player " + playerTurn + " turn: enter position number (0 to 8) :");
+        positionNumber = scanner.nextLine();
+}
 
     public void printBoard() {
         log.info("Welcome to 2 Player Tic Tac Toe.");

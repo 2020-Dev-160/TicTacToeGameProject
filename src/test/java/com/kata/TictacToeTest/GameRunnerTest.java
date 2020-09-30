@@ -28,4 +28,8 @@ public class GameRunnerTest {
     public void verifyIfScannerIsCalledOnceToGetTheFirstInput() {
         when(scanner.nextLine()).thenReturn(1);
     }
+    @Test
+    public void verifyIfScannerIsCalledTwiceToGetTheTwoInput(){
+        when(scanner.nextLine()).thenReturn(1, 2);
+    }
 }
