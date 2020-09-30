@@ -1,5 +1,6 @@
 package com.kata.TictacToeTest;
 
+import com.kata.TictacToe.Game;
 import com.kata.TictacToe.GameRunner;
 import com.kata.TictacToe.PlayerInput;
 import org.junit.Before;
@@ -13,23 +14,26 @@ import static org.mockito.Mockito.when;
 public class GameRunnerTest {
 
     @Mock
-    private GameTest gameTest;
+    private Game game;
     @Mock
     private PlayerInput scanner;
+
     @InjectMocks
     private GameRunner gameRunner;
 
     @Before
-    public void init() {
+    public void init(){
         MockitoAnnotations.initMocks(this);
     }
 
     @Test
     public void verifyIfScannerIsCalledOnceToGetTheFirstInput() {
+
         when(scanner.nextLine()).thenReturn(1);
     }
+
     @Test
-    public void verifyIfScannerIsCalledTwiceToGetTheTwoInput(){
+    public void verifyIfScannerIsCalledTwiceToGetTheTwoInput() {
         when(scanner.nextLine()).thenReturn(1, 2);
     }
 }
