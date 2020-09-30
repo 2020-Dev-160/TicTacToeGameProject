@@ -5,7 +5,7 @@ import java.util.logging.Logger;
 public class GameRunner {
     private static final Logger log = Logger.getLogger(GameRunner.class.getName());
     private final PlayerInput scanner;
-    private Game game;
+    private final Game game;
     public static char playerTurn = 'X';
 
     public GameRunner(PlayerInput scanner, Game game) {
@@ -48,26 +48,23 @@ public class GameRunner {
     }
 
     private boolean getGameWinner() {
-        if (game.isGameOver())
-            return true;
-        else
-            return false;
+        return game.isGameOver();
     }
 
     private boolean checkForValidation(int positionNumber) {
         return game.userInputValidation(positionNumber) && game.checkPositionIsFree(positionNumber);
     }
 
-    public void printBoard () {
+    public void printBoard() {
         log.info("Welcome to 2 Player Tic Tac Toe.");
         log.info("--------------------------------");
-        StringBuilder printInstruction=new StringBuilder("/---|---|---\\"
-                +  "\n|  0 | 1 | 2|"
-                +"\n------------|"
-                +"\n| 3 | 4 | 5 |"
-                +"\n|-----------|"
-                +"\n| 6 | 7 | 8 |"
-                + "\n/---|---|---|");
-        System.out.println(printInstruction);
+        String printInstruction =  "/---|---|---\\" +
+                                  "\n|  0 | 1 | 2|" +
+                                  "\n------------|" +
+                                  "\n| 3 | 4 | 5 |" +
+                                  "\n|-----------|" +
+                                  "\n| 6 | 7 | 8 |" +
+                                  "\n/---|---|---|\"";
+        log.info(printInstruction);
     }
 }
