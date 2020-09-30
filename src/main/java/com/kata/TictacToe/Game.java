@@ -5,7 +5,6 @@ import java.util.logging.Logger;
 import static com.kata.TictacToe.GameConstant.*;
 
 public class Game {
-    public static char winner;
     char previousPlayer;
     char[] board = new char[9];
     private static final Logger log = Logger.getLogger(Game.class.getName());

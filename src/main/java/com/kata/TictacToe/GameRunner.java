@@ -39,33 +39,34 @@ public class GameRunner {
                     break;
             }
         }
-            if (game.getWinner() == 'X' || game.getWinner() == 'O') {
-                log.info("congrats " + game.getWinner() + " is the winner ...!!");
-            } else if (game.checkIfGameIsDraw()) {
-                log.info("well played both the Players. Match is draw");
-            }
+        if (game.getWinner() == 'X' || game.getWinner() == 'O') {
+            log.info("congrats " + game.getWinner() + " is the winner ...!!");
+        } else if (game.checkIfGameIsDraw()) {
+            log.info("well played both the Players. Match is draw");
+        }
 
     }
-        private boolean getGameWinner () {
-            if (game.isGameOver())
-                return true;
-            else
-                return false;
-        }
 
-        private boolean checkForValidation ( int positionNumber){
-            return game.userInputValidation(positionNumber) && game.checkPositionIsFree(positionNumber);
-        }
-
-        public void printBoard () {
-            log.info("Welcome to 2 Player Tic Tac Toe.");
-            log.info("--------------------------------");
-            System.out.println("/---|---|---\\");
-            System.out.println("|  0 | 1 | 2 |");
-            System.out.println("|-----------|");
-            System.out.println("| 3 | 4 | 5 |");
-            System.out.println("|-----------|");
-            System.out.println("| 6 | 7 | 8 |");
-            System.out.println("/---|---|---\\");
-        }
+    private boolean getGameWinner() {
+        if (game.isGameOver())
+            return true;
+        else
+            return false;
     }
+
+    private boolean checkForValidation(int positionNumber) {
+        return game.userInputValidation(positionNumber) && game.checkPositionIsFree(positionNumber);
+    }
+
+    public void printBoard() {
+        log.info("Welcome to 2 Player Tic Tac Toe.");
+        log.info("--------------------------------");
+        System.out.println("/---|---|---\\");
+        System.out.println("|  0 | 1 | 2 |");
+        System.out.println("|-----------|");
+        System.out.println("| 3 | 4 | 5 |");
+        System.out.println("|-----------|");
+        System.out.println("| 6 | 7 | 8 |");
+        System.out.println("/---|---|---\\");
+    }
+}
