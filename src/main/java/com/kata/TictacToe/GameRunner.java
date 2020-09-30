@@ -1,13 +1,33 @@
-package com.kata.TictacToeTest;
+package com.kata.TictacToe;
 
 import java.util.logging.Logger;
 
 public class GameRunner {
-
     private static final Logger log = Logger.getLogger(GameRunner.class.getName());
+    private final PlayerInput scanner;
+    private Game game;
+    public static char playerTurn = 'X';
+
+    public GameRunner(PlayerInput scanner, Game game) {
+        this.scanner = scanner;
+        this.game = game;
+    }
+
+    public GameRunner(){
+        this(new PlayerInput(), new Game());
+    }
 
     public static void main(String[] args) {
-        new GameRunner().printBoard();
+        new GameRunner().beginTheGame();
+    }
+
+    public void beginTheGame() {
+        printBoard();
+        startGame();
+    }
+    private void startGame() {
+        log.info("Player "+ playerTurn + " turn: enter position number (0 to 8) :");
+        int positionNumber = scanner.nextLine();
     }
 
     public void printBoard() {
