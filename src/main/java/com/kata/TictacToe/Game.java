@@ -23,6 +23,16 @@ public class Game {
         previousPlayer = currentPlayer;
     }
 
+    public boolean checkIfGameIsDraw() {
+        for (int i = 0; i < 9; i++) {
+            if (board[i] == '\0')
+                break;
+            else if (i == 8)
+                return true;
+        }
+        return false;
+    }
+
     public char getWinner() {
         char winner = 0;
         if (isAnyColumnFilledByPlayerX() || isAnyRowFilledByPlayerX() || isAnyDiagonalFilledByPlayerX()) {
@@ -82,6 +92,6 @@ public class Game {
 
     public boolean isGameOver() {
 
-        return getWinner() == 'X' || getWinner() == 'O';
+        return getWinner() == 'X' || getWinner() == 'O' || checkIfGameIsDraw();
     }
 }

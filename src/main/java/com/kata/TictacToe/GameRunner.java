@@ -43,8 +43,6 @@ public class GameRunner {
             log.info("well played both the Players. Match is draw");
         }
     }
-
-
     private boolean getGameWinner() {
         if (game.isGameOver())
             return true;
