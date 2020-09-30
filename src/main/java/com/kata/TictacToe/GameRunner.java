@@ -13,7 +13,7 @@ public class GameRunner {
         this.game = game;
     }
 
-    public GameRunner(){
+    public GameRunner() {
         this(new PlayerInput(), new Game());
     }
 
@@ -25,17 +25,33 @@ public class GameRunner {
         printBoard();
         startGame();
     }
+
     private void startGame() {
-        int positionNumber;
-        log.info("Player " + playerTurn + " turn: enter position number (0 to 8) :");
-        positionNumber = scanner.nextLine();
-        if (playerTurn == 'X')
-            playerTurn = 'O';
+        while (game.isGameNotOver()) {
+            log.info("Player "+ playerTurn + " turn: enter position number (0 to 8) :");
+            int positionNumber = scanner.nextLine();
+                if (playerTurn == 'X')
+                    playerTurn = 'O';
+                else
+                    playerTurn = 'X';
+                if(getGameWinner())
+                    break;
+        }
+        if (game.getWinner() == 'X' || game.getWinner() == 'O')
+            log.info("congrats "+ Game.winner + " is the winner ...!!");
+        else {
+            log.info("well played both the Players. Match is draw");
+        }
+    }
+
+
+    private boolean getGameWinner() {
+        if (game.isGameOver())
+            return true;
         else
-            playerTurn = 'X';
-        log.info("Player " + playerTurn + " turn: enter position number (0 to 8) :");
-        positionNumber = scanner.nextLine();
-}
+            return false;
+    }
+
 
     public void printBoard() {
         log.info("Welcome to 2 Player Tic Tac Toe.");

@@ -32,7 +32,7 @@ public class GameTest {
     }
 
     @Test
-    public void gameshouldReturnXonThirdTurn() {
+    public void gameShouldReturnXonThirdTurn() {
         game.playAtPosition(0);
         game.playAtPosition(1);
         game.playAtPosition(2);
@@ -214,6 +214,20 @@ public class GameTest {
         game.playAtPosition(6);
 
         Assert.assertEquals(PLAYER_O, game.getWinner());
+    }
+    @Test
+    public void gameIsOverWhenAllPositionOccupied() {
+        game.playAtPosition(0);
+        game.playAtPosition(1);
+        game.playAtPosition(2);
+        game.playAtPosition(3);
+        game.playAtPosition(4);
+        game.playAtPosition(5);
+        game.playAtPosition(6);
+        game.playAtPosition(7);
+        game.playAtPosition(8);
+
+        Assert.assertTrue(game.isGameOver());
     }
 
 }

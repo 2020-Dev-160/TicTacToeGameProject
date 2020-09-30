@@ -5,6 +5,7 @@ import static com.kata.TictacToe.GameConstant.*;
 public class Game {
     public static final char PLAYER_X = 'X';
     public static final char PLAYER_O = 'O';
+    public static char winner;
     char previousPlayer;
     char[] board = new char[9];
 
@@ -75,4 +76,12 @@ public class Game {
         return getPlayerAtPosition(position) == PLAYER_O;
     }
 
+    public boolean isGameNotOver() {
+        return !isGameOver();
+    }
+
+    public boolean isGameOver() {
+
+        return getWinner() == 'X' || getWinner() == 'O';
+    }
 }
