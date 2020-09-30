@@ -131,6 +131,7 @@ public class GameTest {
 
         Assert.assertEquals(PLAYER_O, game.getWinner());
     }
+
     @Test
     public void gameShouldDetermineWinnerXAfterFillingSecondRow() {
         game.playAtPosition(3);
@@ -141,6 +142,7 @@ public class GameTest {
 
         Assert.assertEquals(PLAYER_X, game.getWinner());
     }
+
     @Test
     public void gameShouldDetermineWinnerOAfterFillingSecondRow() {
         game.playAtPosition(0);
@@ -152,6 +154,7 @@ public class GameTest {
 
         Assert.assertEquals(PLAYER_O, game.getWinner());
     }
+
     @Test
     public void gameShouldDetermineWinnerXAfterFillingThirdRow() {
         game.playAtPosition(6);
@@ -162,6 +165,7 @@ public class GameTest {
 
         Assert.assertEquals(PLAYER_X, game.getWinner());
     }
+
     @Test
     public void gameShouldDetermineWinnerOAfterFillingThirdRow() {
         game.playAtPosition(0);
@@ -173,6 +177,7 @@ public class GameTest {
 
         Assert.assertEquals(PLAYER_O, game.getWinner());
     }
+
     @Test
     public void gameShouldDetermineWinnerXAfterFillingFirstDiagonal() {
         game.playAtPosition(0);
@@ -183,6 +188,7 @@ public class GameTest {
 
         Assert.assertEquals(PLAYER_X, game.getWinner());
     }
+
     @Test
     public void gameShouldDetermineWinnerOAfterFillingFirstDiagonal() {
         game.playAtPosition(1);
@@ -194,6 +200,7 @@ public class GameTest {
 
         Assert.assertEquals(PLAYER_O, game.getWinner());
     }
+
     @Test
     public void gameShouldDetermineWinnerXAfterFillingSecondDiagonal() {
         game.playAtPosition(2);
@@ -204,6 +211,7 @@ public class GameTest {
 
         Assert.assertEquals(PLAYER_X, game.getWinner());
     }
+
     @Test
     public void gameShouldDetermineWinnerOAfterFillingSecondDiagonal() {
         game.playAtPosition(1);
@@ -215,6 +223,7 @@ public class GameTest {
 
         Assert.assertEquals(PLAYER_O, game.getWinner());
     }
+
     @Test
     public void gameIsOverWhenAllPositionOccupied() {
         game.playAtPosition(0);
@@ -229,6 +238,7 @@ public class GameTest {
 
         Assert.assertTrue(game.isGameOver());
     }
+
     @Test
     public void whenMatchIsDraw() {
         game.playAtPosition(0);
@@ -243,6 +253,7 @@ public class GameTest {
 
         Assert.assertTrue(game.checkIfGameIsDraw());
     }
+
     @Test
     public void playerInputShouldBeBetween0To8() {
         Assert.assertTrue(game.userInputValidation(0));
@@ -254,6 +265,22 @@ public class GameTest {
         Assert.assertTrue(game.userInputValidation(6));
         Assert.assertTrue(game.userInputValidation(7));
         Assert.assertTrue(game.userInputValidation(8));
+        Assert.assertFalse(game.userInputValidation(10));
+        Assert.assertFalse(game.userInputValidation(-1));
+
     }
 
-}
+    @Test
+    public void playerShouldNotPlayAtPlayedPosition() {
+        Assert.assertTrue(game.checkPositionIsFree(0));
+        Assert.assertTrue(game.checkPositionIsFree(1));
+        Assert.assertTrue(game.checkPositionIsFree(2));
+        Assert.assertTrue(game.checkPositionIsFree(3));
+        Assert.assertTrue(game.checkPositionIsFree(4));
+        Assert.assertTrue(game.checkPositionIsFree(5));
+        Assert.assertTrue(game.checkPositionIsFree(6));
+        Assert.assertTrue(game.checkPositionIsFree(7));
+        Assert.assertTrue(game.checkPositionIsFree(8));
+        Assert.assertFalse(game.checkPositionIsFree(8));
+    }
+ }

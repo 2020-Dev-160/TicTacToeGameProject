@@ -11,4 +11,7 @@ public class GameConstant {
     public static final int SEVENTH_POSITION = 7;
     public static final int EIGHTH_POSITION = 8;
 
+    public static final char PLAYER_X = 'X';
+    public static final char PLAYER_O = 'O';
+
 }

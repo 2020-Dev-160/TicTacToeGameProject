@@ -5,8 +5,6 @@ import java.util.logging.Logger;
 import static com.kata.TictacToe.GameConstant.*;
 
 public class Game {
-    public static final char PLAYER_X = 'X';
-    public static final char PLAYER_O = 'O';
     public static char winner;
     char previousPlayer;
     char[] board = new char[9];
@@ -27,31 +25,35 @@ public class Game {
     }
 
     public boolean checkIfGameIsDraw() {
-        for (int i = 0; i < 9; i++) {
-            if (board[i] == '\0')
-                break;
-            else if (i == 8)
-                return true;
+        boolean isDraw = false;
+        for (int positionNumber = 0; positionNumber < 9; positionNumber++) {
+            if (board[positionNumber] == '\0')
+                 break;
+            else if (positionNumber == 8) {
+                isDraw = true;
+            }
         }
-        return false;
+        return isDraw;
     }
 
     public boolean userInputValidation(int positionNumber) {
+        boolean isValid=true;
         if (positionNumber < 0 || positionNumber > 8) {
             log.warning("Invalid input re-enter position number....");
-            return false;
-        } else
-            return true;
+            isValid=false;
+        }
+            return isValid;
     }
 
     public boolean checkPositionIsFree(int positionNumber) {
+        boolean isFree=true;
         if (board[positionNumber] == '\0') {
             playAtPosition(positionNumber);
-            return true;
         } else {
             log.warning("Slot already taken; re-enter slot number: ");
-            return false;
+            isFree=false;
         }
+        return isFree;
     }
 
     public char getWinner() {
