@@ -27,8 +27,8 @@ public class Game {
         boolean isDraw = false;
         for (int positionNumber = 0; positionNumber < 9; positionNumber++) {
             if (board[positionNumber] == '\0')
-                 break;
-            else if (positionNumber == 8) {
+                break;
+            else if (positionNumber == EIGHTH_POSITION) {
                 isDraw = true;
             }
         }
@@ -36,21 +36,21 @@ public class Game {
     }
 
     public boolean userInputValidation(int positionNumber) {
-        boolean isValid=true;
-        if (positionNumber < 0 || positionNumber > 8) {
+        boolean isValid = true;
+        if (positionNumber < ZERO_POSITION || positionNumber > EIGHTH_POSITION) {
             log.warning("Invalid input re-enter position number....");
-            isValid=false;
+            isValid = false;
         }
-            return isValid;
+        return isValid;
     }
 
     public boolean checkPositionIsFree(int positionNumber) {
-        boolean isFree=true;
+        boolean isFree = true;
         if (board[positionNumber] == '\0') {
             playAtPosition(positionNumber);
         } else {
             log.warning("Slot already taken; re-enter slot number: ");
-            isFree=false;
+            isFree = false;
         }
         return isFree;
     }
@@ -113,6 +113,6 @@ public class Game {
     }
 
     public boolean isGameOver() {
-        return getWinner() == 'X' || getWinner() == 'O' || checkIfGameIsDraw();
+        return getWinner() == PLAYER_X || getWinner() == PLAYER_O || checkIfGameIsDraw();
     }
 }
