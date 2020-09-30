@@ -38,12 +38,13 @@ public class GameRunner {
                 if (getGameWinner())
                     break;
             }
-            if (game.getWinner() == 'X' || game.getWinner() == 'O')
-                log.info("congrats " + Game.winner + " is the winner ...!!");
-            else {
+        }
+            if (game.getWinner() == 'X' || game.getWinner() == 'O') {
+                log.info("congrats " + game.getWinner() + " is the winner ...!!");
+            } else if (game.checkIfGameIsDraw()) {
                 log.info("well played both the Players. Match is draw");
             }
-        }
+
     }
         private boolean getGameWinner () {
             if (game.isGameOver())
