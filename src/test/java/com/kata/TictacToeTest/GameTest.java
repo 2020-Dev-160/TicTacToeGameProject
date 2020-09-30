@@ -243,5 +243,17 @@ public class GameTest {
 
         Assert.assertTrue(game.checkIfGameIsDraw());
     }
+    @Test
+    public void playerInputShouldBeBetween0To8() {
+        Assert.assertTrue(game.userInputValidation(0));
+        Assert.assertTrue(game.userInputValidation(1));
+        Assert.assertTrue(game.userInputValidation(2));
+        Assert.assertTrue(game.userInputValidation(3));
+        Assert.assertTrue(game.userInputValidation(4));
+        Assert.assertTrue(game.userInputValidation(5));
+        Assert.assertTrue(game.userInputValidation(6));
+        Assert.assertTrue(game.userInputValidation(7));
+        Assert.assertTrue(game.userInputValidation(8));
+    }
 
 }

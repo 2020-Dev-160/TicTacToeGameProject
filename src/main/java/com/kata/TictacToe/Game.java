@@ -1,5 +1,7 @@
 package com.kata.TictacToe;
 
+import java.util.logging.Logger;
+
 import static com.kata.TictacToe.GameConstant.*;
 
 public class Game {
@@ -8,6 +10,7 @@ public class Game {
     public static char winner;
     char previousPlayer;
     char[] board = new char[9];
+    private static final Logger log = Logger.getLogger(Game.class.getName());
 
     public char getPlayerAtPosition(int positionNumber) {
         return board[positionNumber];
@@ -31,6 +34,24 @@ public class Game {
                 return true;
         }
         return false;
+    }
+
+    public boolean userInputValidation(int positionNumber) {
+        if (positionNumber < 0 || positionNumber > 8) {
+            log.warning("Invalid input re-enter position number....");
+            return false;
+        } else
+            return true;
+    }
+
+    public boolean checkPositionIsFree(int positionNumber) {
+        if (board[positionNumber] == '\0') {
+            playAtPosition(positionNumber);
+            return true;
+        } else {
+            log.warning("Slot already taken; re-enter slot number: ");
+            return false;
+        }
     }
 
     public char getWinner() {
@@ -91,7 +112,6 @@ public class Game {
     }
 
     public boolean isGameOver() {
-
         return getWinner() == 'X' || getWinner() == 'O' || checkIfGameIsDraw();
     }
 }

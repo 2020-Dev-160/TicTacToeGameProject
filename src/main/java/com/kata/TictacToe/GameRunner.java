@@ -28,38 +28,43 @@ public class GameRunner {
 
     private void startGame() {
         while (game.isGameNotOver()) {
-            log.info("Player "+ playerTurn + " turn: enter position number (0 to 8) :");
+            log.info("Player " + playerTurn + " turn: enter position number (0 to 8) :");
             int positionNumber = scanner.nextLine();
+            if (checkForValidation(positionNumber)) {
                 if (playerTurn == 'X')
                     playerTurn = 'O';
                 else
                     playerTurn = 'X';
-                if(getGameWinner())
+                if (getGameWinner())
                     break;
+            }
+            if (game.getWinner() == 'X' || game.getWinner() == 'O')
+                log.info("congrats " + Game.winner + " is the winner ...!!");
+            else {
+                log.info("well played both the Players. Match is draw");
+            }
         }
-        if (game.getWinner() == 'X' || game.getWinner() == 'O')
-            log.info("congrats "+ Game.winner + " is the winner ...!!");
-        else {
-            log.info("well played both the Players. Match is draw");
+    }
+        private boolean getGameWinner () {
+            if (game.isGameOver())
+                return true;
+            else
+                return false;
+        }
+
+        private boolean checkForValidation ( int positionNumber){
+            return game.userInputValidation(positionNumber) && game.checkPositionIsFree(positionNumber);
+        }
+
+        public void printBoard () {
+            log.info("Welcome to 2 Player Tic Tac Toe.");
+            log.info("--------------------------------");
+            System.out.println("/---|---|---\\");
+            System.out.println("|  0 | 1 | 2 |");
+            System.out.println("|-----------|");
+            System.out.println("| 3 | 4 | 5 |");
+            System.out.println("|-----------|");
+            System.out.println("| 6 | 7 | 8 |");
+            System.out.println("/---|---|---\\");
         }
     }
-    private boolean getGameWinner() {
-        if (game.isGameOver())
-            return true;
-        else
-            return false;
-    }
-
-
-    public void printBoard() {
-        log.info("Welcome to 2 Player Tic Tac Toe.");
-        log.info("--------------------------------");
-        System.out.println("/---|---|---\\");
-        System.out.println("|  0 | 1 | 2 |");
-        System.out.println("|-----------|");
-        System.out.println("| 3 | 4 | 5 |");
-        System.out.println("|-----------|");
-        System.out.println("| 6 | 7 | 8 |");
-        System.out.println("/---|---|---\\");
-    }
-}
