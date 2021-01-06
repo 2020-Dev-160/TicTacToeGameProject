@@ -1,22 +1,25 @@
 pipeline {
 
     agent any
+    tools {
+        maven 'Maven_3.5.2' 
+    }
     stages {
         stage('Compile stage') {
             steps {
-                echo "compiling the aplication" 
+                bat "mvn clean compile" 
         }
     }
 
          stage('testing stage') {
              steps {
-                echo "testing the aplication" 
+                bat "mvn test"
         }
     }
 
           stage('deployment stage') {
               steps {
-                echo "deploying aplication" 
+                bat "mvn deploy"
         }
     }
 
